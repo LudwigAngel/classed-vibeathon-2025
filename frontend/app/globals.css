@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables generated from Kigen.design */
+:root {
+  --purple-heart-50: #ffffff;
+  --purple-heart-100: #f2e6ff;
+  --purple-heart-200: #dcc2ff;
+  --purple-heart-300: #cea9ff;
+  --purple-heart-400: #c290ff;
+  --purple-heart-500: #b777ff;
+  --purple-heart-600: #ac59ff;
+  --purple-heart-700: #9745f2;
+  --purple-heart-800: #9145e7;
+  --purple-heart-900: #8843d7;
+  --purple-heart-1000: #8242cd;
+  --purple-heart-1100: #7b3fc1;
+  --purple-heart-1200: #733ab5;
+  --purple-heart-1300: #6935a7;
+  --purple-heart-1400: #5f2f97;
+  --purple-heart-1500: #542887;
+  --purple-heart-1600: #482077;
+  --purple-heart-1700: #3d1865;
+  --purple-heart-1800: #310f54;
+  --purple-heart-1900: #270b45;
+}
+
+/* Custom utility classes for the purple heart palette */
+.bg-primary-50 { background-color: var(--purple-heart-50); }
+.bg-primary-100 { background-color: var(--purple-heart-100); }
+.bg-primary-200 { background-color: var(--purple-heart-200); }
+.bg-primary-300 { background-color: var(--purple-heart-300); }
+.bg-primary-400 { background-color: var(--purple-heart-400); }
+.bg-primary-500 { background-color: var(--purple-heart-500); }
+.bg-primary-600 { background-color: var(--purple-heart-600); }
+.bg-primary-700 { background-color: var(--purple-heart-700); }
+.bg-primary-800 { background-color: var(--purple-heart-800); }
+.bg-primary-900 { background-color: var(--purple-heart-900); }
+
+.text-primary-50 { color: var(--purple-heart-50); }
+.text-primary-100 { color: var(--purple-heart-100); }
+.text-primary-200 { color: var(--purple-heart-200); }
+.text-primary-300 { color: var(--purple-heart-300); }
+.text-primary-400 { color: var(--purple-heart-400); }
+.text-primary-500 { color: var(--purple-heart-500); }
+.text-primary-600 { color: var(--purple-heart-600); }
+.text-primary-700 { color: var(--purple-heart-700); }
+.text-primary-800 { color: var(--purple-heart-800); }
+.text-primary-900 { color: var(--purple-heart-900); }
+
+.border-primary-200 { border-color: var(--purple-heart-200); }
+.border-primary-300 { border-color: var(--purple-heart-300); }
+.border-primary-400 { border-color: var(--purple-heart-400); }
+.border-primary-500 { border-color: var(--purple-heart-500); }
+.border-primary-600 { border-color: var(--purple-heart-600); }
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--purple-heart-600), var(--purple-heart-800));
+}
+
+.bg-gradient-primary-light {
+  background: linear-gradient(135deg, var(--purple-heart-100), var(--purple-heart-300));
+}
+
+html, body { height: 100%; }

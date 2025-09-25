@@ -1,0 +1,110 @@
+// Prisma schema shared across backend services
+// Database: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../backend/node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum SubmissionState {
+  ENTREGADO
+  ATRASADO
+  FALTANTE
+  REENTREGA
+}
+
+enum UserRole {
+  ALUMNO
+  PROFESOR
+  COORDINADOR
+  ADMIN
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  nombre    String
+  role      UserRole @default(ALUMNO)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  enrollments      Enrollment[]
+  submissions      Submission[]      @relation("UserSubmissions")
+  attendanceEvents AttendanceEvent[]
+  notifications    NotificationLog[]
+}
+
+model Course {
+  id           String      @id
+  nombre       String
+  seccion      String?
+  teacherEmail String
+
+  enrollments      Enrollment[]
+  coursework       Coursework[]
+  announcements    Announcement[]
+  attendanceEvents AttendanceEvent[]
+}
+
+model Enrollment {
+  id        String   @id @default(cuid())
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  rol       UserRole
+}
+
+model Coursework {
+  id        String   @id
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  String
+  titulo    String
+  dueAt     DateTime?
+  maxPoints Int?
+
+  submissions Submission[]
+}
+
+model Submission {
+  id           String          @id @default(cuid())
+  coursework   Coursework      @relation(fields: [courseworkId], references: [id])
+  courseworkId String
+  student      User            @relation("UserSubmissions", fields: [studentId], references: [id])
+  studentId    String
+  estado       SubmissionState
+  score        Float?
+  turnedInAt   DateTime?
+}
+
+model Announcement {
+  id        String   @id
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  String
+  texto     String
+  createdAt DateTime @default(now())
+}
+
+model AttendanceEvent {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  String
+  createdAt DateTime @default(now())
+  source    String   // calendar|meet
+}
+
+model NotificationLog {
+  id        String   @id @default(cuid())
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String?
+  channel   String   // email|telegram|whatsapp
+  payload   Json
+  createdAt DateTime @default(now())
+}

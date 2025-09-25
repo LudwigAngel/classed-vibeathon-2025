@@ -1,0 +1,21 @@
+{
+  "name": "semillero-classroom-dashboard",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "postinstall": "npm --prefix backend run prisma:generate",
+    "db:migrate": "npm --prefix backend run prisma:migrate",
+    "db:seed": "npm --prefix backend run prisma:seed",
+    "sync:classroom": "npm --prefix backend run sync:classroom",
+    "sync:calendar": "npm --prefix backend run sync:calendar",
+    "report:weekly": "npm --prefix backend run report:weekly",
+    "dev": "concurrently \"npm --prefix backend run start:dev\" \"npm --prefix frontend run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

@@ -1,0 +1,272 @@
+# ===================================
+# NODE.JS & NPM
+# ===================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# ===================================
+# ENVIRONMENT VARIABLES & SECRETS
+# ===================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+frontend/.env*
+backend/.env*
+
+# API Keys and sensitive data
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+config/secrets.json
+
+# ===================================
+# NEXT.JS (FRONTEND)
+# ===================================
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.vercel
+frontend/.turbo
+
+# ===================================
+# NESTJS (BACKEND)
+# ===================================
+backend/dist/
+backend/build/
+backend/.turbo
+
+# ===================================
+# TYPESCRIPT
+# ===================================
+*.tsbuildinfo
+.tsbuildinfo
+
+# ===================================
+# PRISMA & DATABASE
+# ===================================
+prisma/*.db
+prisma/*.db-journal
+prisma/migrations/dev.db*
+prisma/dev.db*
+
+# Generated Prisma Client
+**/node_modules/.prisma/
+backend/node_modules/.prisma/
+
+# Database dumps
+*.sql
+*.dump
+
+# ===================================
+# DOCKER
+# ===================================
+.dockerignore
+docker-compose.override.yml
+.docker/
+
+# ===================================
+# LOGS
+# ===================================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ===================================
+# TESTING
+# ===================================
+coverage/
+.nyc_output/
+junit.xml
+test-results/
+playwright-report/
+test-results.xml
+
+# ===================================
+# IDE & EDITORS
+# ===================================
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===================================
+# OPERATING SYSTEM
+# ===================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===================================
+# TEMPORARY FILES
+# ===================================
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.backup
+*.orig
+
+# ===================================
+# DEPLOYMENT & CI/CD
+# ===================================
+.vercel
+.netlify
+.firebase/
+.github/workflows/secrets/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# ===================================
+# MONITORING & ANALYTICS
+# ===================================
+.sentry-native/
+.sentry/
+
+# ===================================
+# MISC
+# ===================================
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ===================================
+# PROJECT SPECIFIC
+# ===================================
+# Ignore uploaded files (if any)
+uploads/
+public/uploads/
+
+# Ignore generated documentation
+docs/build/
+
+# Ignore local development files
+*.local
