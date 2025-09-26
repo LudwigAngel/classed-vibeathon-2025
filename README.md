@@ -100,4 +100,4 @@ Frontend (Next.js) ↔ Backend (NestJS) ↔ Google Classroom API
 - ✅ **Responsive design** funciona en desktop y móvil
 
 ---
-**Desarrollado por [Tu Nombre] para Vibeathon 2025** 🚀
+**Desarrollado por LUDWIG ANGEL para Vibeathon 2025** 🚀
