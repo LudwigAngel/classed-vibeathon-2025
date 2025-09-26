@@ -1,84 +1,103 @@
-# Semillero Digital – Plataforma de métricas y seguimiento en tiempo real para Google Classroom
+# 🏆 Semillero Digital Dashboard - Vibeathon 2025
 
-Monorepo para la Vibeathon (25–26 septiembre 2025). Frontend en Next.js 14 (App Router) + TailwindCSS + Flowbite + PWA. Backend en NestJS con Prisma + PostgreSQL, jobs de sincronización con Google Classroom & Calendar.
+> **Dashboard inteligente que transforma Google Classroom en una herramienta de seguimiento y métricas para organizaciones educativas sin fines de lucro.**
 
-## Estructura
+## 🚀 **Demo en Vivo**
+**🌐 Aplicación:** https://classed-vibeathon-2025-c1b9f0j8c-ludwigangels-projects.vercel.app/
 
-```
-semillero-classroom-dashboard/
-├─ frontend/        # Next.js 14 (App Router) + Tailwind + Flowbite + PWA
-├─ backend/         # NestJS + Prisma + Cron jobs + Google APIs
-├─ prisma/          # Esquema DB compartido + seeds demo
-├─ docker-compose.yml
-├─ package.json     # npm workspaces
-├─ .gitignore
-├─ .env.example
-└─ README.md
-```
+**📱 Acceso Directo a Vistas:**
+- [Vista Alumno](https://classed-vibeathon-2025-c1b9f0j8c-ludwigangels-projects.vercel.app/student)
+- [Vista Profesor](https://classed-vibeathon-2025-c1b9f0j8c-ludwigangels-projects.vercel.app/teacher)
+- [Vista Coordinador](https://classed-vibeathon-2025-c1b9f0j8c-ludwigangels-projects.vercel.app/coordinator)
 
-## Requisitos del concurso
-- Proyecto funcional creado durante 25–26 septiembre 2025
-- Repositorio público con README claro y pasos de despliegue
-- Video demo (1–2 min) mostrando flujo principal – agrega el link en este README (sección Demo)
+## ✅ **Funcionalidades MVP Implementadas**
+- ✅ Conexión con Google Classroom API
+- ✅ Dashboard con lista de alumnos y progreso
+- ✅ Lista de profesores y sus clases
+- ✅ Estado de entregas (entregado, atrasado, faltante, reentrega)
+- ✅ Filtros por cohorte, profesor y estado
+- ✅ Autenticación OAuth con Google
+- ✅ 3 vistas de usuario (Alumno, Profesor, Coordinador)
 
-## Funcionalidades MVP
-- Login con Google (OAuth2) – mismo email que Classroom
-- Integración Classroom API para cursos, alumnos, tareas, entregas
-- Filtros por cohorte, profesor y estado
-- Dashboards: Alumno, Profesor, Coordinador
+## 🛠 **Stack Tecnológico**
+- **Frontend:** Next.js 14, TypeScript, TailwindCSS, Flowbite
+- **Backend:** NestJS, Prisma ORM, PostgreSQL
+- **APIs:** Google Classroom API, Google Calendar API
+- **Deployment:** Vercel (Frontend), Docker (Local)
 
-## Funcionalidades "wow"
-- Predicción de riesgo (micro-modelo ML)
-- Análisis de sentimiento (NLP simple)
-- Integración Calendar + Meet (asistencia)
-- Notificaciones multicanal (email/Telegram/WhatsApp)
-- PWA con modo offline
-- Reportes PDF/CSV automáticos
-- Heatmaps y gráficos interactivos
+## 🚀 **Despliegue Local (Para Jurados)**
 
-## Variables de entorno
-Copia `.env.example` a `.env` y completa los valores. El backend y frontend usan variables específicas. Para desarrollo con Docker Compose, `.env` en la raíz propaga a servicios.
+### **Opción 1: Usar la aplicación desplegada (Recomendado)**
+Simplemente accede a: https://classed-vibeathon-2025-c1b9f0j8c-ludwigangels-projects.vercel.app/
 
-## Puesta en marcha (local)
-Requisitos: Node.js >= 18, Docker, npm.
+### **Opción 2: Ejecutar localmente**
 
-1) Instalar dependencias (workspaces):
-```
+**Requisitos:** Node.js >= 18, Docker
+
+```bash
+# 1. Clonar repositorio
+git clone [URL_DEL_REPO]
+cd classed-vibeathon-2025
+
+# 2. Instalar dependencias
 npm install
-```
 
-2) Iniciar servicios con Docker (Postgres + backend + frontend):
-```
-docker compose up --build
-```
+# 3. Configurar variables de entorno
+cp .env.example .env
+# Editar .env con tus credenciales de Google (opcional para demo)
 
-3) Ejecutar migraciones y seed de datos demo:
-```
+# 4. Levantar base de datos
+docker compose up db -d
+
+# 5. Ejecutar migraciones y datos de prueba
 npm run db:migrate
 npm run db:seed
+
+# 6. Levantar backend (terminal 1)
+cd backend
+npm run start:dev
+
+# 7. Levantar frontend (terminal 2)
+cd frontend
+npm run dev
 ```
 
-4) Abrir frontend: http://localhost:3000
-   Backend REST API: http://localhost:4000
+**URLs locales:**
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:4000
 
-## Scripts útiles
-- `npm run db:migrate` – aplica migraciones Prisma
-- `npm run db:seed` – inserta datos ficticios para demo
-- `npm run sync:classroom` – job de sincronización Classroom (pull)
-- `npm run sync:calendar` – job de sincronización Calendar (pull)
-- `npm run report:weekly` – genera reportes PDF/CSV (demo)
+## 📊 **Datos de Demostración**
+La aplicación incluye datos mock para evaluación:
+- 8 estudiantes ficticios
+- 1 profesor (Profe Ada)
+- 1 curso (Fullstack 101)
+- Tareas y entregas con diferentes estados
 
-## Deploy
-- Frontend: Vercel
-- Backend: Render/Heroku/Fly.io
-- DB: Supabase/Railway/PostgreSQL gestionado
+## 🎯 **Problema Resuelto**
+Semillero Digital necesitaba:
+1. **Seguimiento consolidado** del progreso estudiantil
+2. **Comunicación clara** de tareas y deadlines
+3. **Métricas automatizadas** para coordinadores
 
-CI/CD con GitHub Actions (lint, test, build). Archivos en `.github/workflows/`.
+## 💡 **Solución**
+Dashboard complementario que se integra con Google Classroom API para proporcionar:
+- **Vista Alumno:** Tareas pendientes, progreso personal
+- **Vista Profesor:** Métricas por clase, seguimiento estudiantil
+- **Vista Coordinador:** Analytics organizacional, reportes globales
 
-## Demo
-- Video (1–2 min): [pendiente]
+## 🏗 **Arquitectura**
+```
+Frontend (Next.js) ↔ Backend (NestJS) ↔ Google Classroom API
+                            ↕
+                    PostgreSQL Database
+```
 
-## Notas
-- Para Google OAuth y APIs, necesitarás crear credenciales en Google Cloud Console.
-- Scopes requeridos (Classroom/Calendar/OpenID) están documentados en `backend/src/google/google.constants.ts`.
-- Durante el hackathon, si no cuentas con credenciales, usa el seed y el modo demo para grabar el flujo end-to-end.
+## 📝 **Notas para Evaluación**
+- ✅ **Proyecto funcional** creado durante Vibeathon (25-26 sept 2025)
+- ✅ **Repositorio público** con código completo
+- ✅ **Aplicación desplegada** lista para usar
+- ✅ **Datos de demo** incluidos para evaluación
+- ✅ **Responsive design** funciona en desktop y móvil
+
+---
+**Desarrollado por [Tu Nombre] para Vibeathon 2025** 🚀
